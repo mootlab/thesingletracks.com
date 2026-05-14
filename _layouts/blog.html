@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<div class="blog-list-container">
+  <p class="section-label">Storie</p>
+  <h1 class="blog-list-title">Le nostre <em>storie</em></h1>
+
+  {% for post in site.posts %}
+  <a class="post-card" href="{{ post.url | relative_url }}">
+    <div class="post-card-date">{{ post.date | date: "%d %b %Y" }}</div>
+    <div class="post-card-body">
+      <p class="post-card-tag">{{ post.categories | first }}</p>
+      <h2 class="post-card-title">{{ post.title }}</h2>
+      <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+    </div>
+  </a>
+  {% endfor %}
+</div>

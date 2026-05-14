@@ -1,0 +1,13 @@
+title: The Singletracks
+email: moot23x@gmail.com
+description: >-
+  Notizie, storie e atleti dal mondo del trail e ultra running italiano.
+baseurl: ""
+url: "https://thesingletracks.com"
+twitter_username: thesingletracks
+github_username: mootlab
+author: The Singletracks
+instagram_username: thesingletracks
+
+plugins:
+  - jekyll-feed

@@ -1,0 +1,342 @@
+---
+---
+
+:root {
+  --soil:    #1a1510;
+  --bark:    #2e2318;
+  --stone:   #3d3328;
+  --moss:    #4a5c3a;
+  --lichen:  #7a8c6a;
+  --fog:     #b8c4a8;
+  --snow:    #e8ead8;
+  --sky:     #c8d4c0;
+  --accent:  #8fa86a;
+  --rust:    #a05c3a;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--soil);
+  color: var(--snow);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.35;
+}
+
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 3rem;
+  background: linear-gradient(to bottom, rgba(26,21,16,0.95) 0%, transparent 100%);
+}
+
+.nav-logo {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--fog);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--lichen);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover { color: var(--snow); }
+
+footer {
+  border-top: 1px solid var(--stone);
+  padding: 2.5rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-logo {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--fog);
+}
+
+.footer-copy {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  color: var(--stone);
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-links a {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--lichen);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover { color: var(--snow); }
+
+.btn {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.9rem 2rem;
+  text-decoration: none;
+  transition: all 0.3s;
+  cursor: pointer;
+  border: none;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--soil);
+}
+
+.btn-primary:hover { background: var(--snow); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--fog);
+  border: 1px solid var(--stone);
+}
+
+.btn-outline:hover {
+  border-color: var(--fog);
+  color: var(--snow);
+}
+
+section { padding: 6rem 3rem; }
+
+.section-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 3rem;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--stone), transparent);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.post-container {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 8rem 3rem 6rem;
+}
+
+.post-header {
+  margin-bottom: 3rem;
+  border-bottom: 1px solid var(--stone);
+  padding-bottom: 2rem;
+}
+
+.post-category {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.post-title {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--snow);
+  margin-bottom: 1rem;
+}
+
+.post-meta {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: var(--stone);
+  text-transform: uppercase;
+}
+
+.post-content {
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: var(--fog);
+}
+
+.post-content h2 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--snow);
+  margin: 2.5rem 0 1rem;
+}
+
+.post-content h3 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--snow);
+  margin: 2rem 0 0.8rem;
+}
+
+.post-content p { margin-bottom: 1.5rem; }
+
+.post-content a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--moss);
+}
+
+.post-content a:hover { color: var(--snow); }
+
+.post-content ul, .post-content ol {
+  margin: 1rem 0 1.5rem 2rem;
+}
+
+.post-content li { margin-bottom: 0.5rem; }
+
+.post-content strong { color: var(--snow); font-weight: 600; }
+
+.post-content blockquote {
+  border-left: 2px solid var(--accent);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: var(--lichen);
+}
+
+.blog-list-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8rem 3rem 6rem;
+}
+
+.blog-list-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 300;
+  color: var(--snow);
+  margin-bottom: 3rem;
+}
+
+.blog-list-title em {
+  font-style: italic;
+  color: var(--fog);
+}
+
+.post-card {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 2rem;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--stone);
+  text-decoration: none;
+  transition: border-color 0.3s;
+}
+
+.post-card:hover { border-color: var(--lichen); }
+
+.post-card-date {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: var(--stone);
+  text-transform: uppercase;
+  padding-top: 0.3rem;
+}
+
+.post-card-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.post-card-title {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--snow);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.post-card-excerpt {
+  font-size: 0.95rem;
+  color: var(--lichen);
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  nav { padding: 1.2rem 1.5rem; }
+  .nav-links { display: none; }
+  section { padding: 4rem 1.5rem; }
+  .post-container { padding: 6rem 1.5rem 4rem; }
+  .blog-list-container { padding: 6rem 1.5rem 4rem; }
+  .post-card { grid-template-columns: 1fr; gap: 0.5rem; }
+  footer { flex-direction: column; align-items: flex-start; }
+}

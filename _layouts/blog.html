@@ -3,17 +3,48 @@ layout: default
 ---
 
 <div class="blog-list-container">
-  <p class="section-label">Storie</p>
+  <p class="section-label">Storie dal sentiero</p>
   <h1 class="blog-list-title">Le nostre <em>storie</em></h1>
 
-  {% for post in site.posts %}
-  <a class="post-card" href="{{ post.url | relative_url }}">
-    <div class="post-card-date">{{ post.date | date: "%d %b %Y" }}</div>
-    <div class="post-card-body">
-      <p class="post-card-tag">{{ post.categories | first }}</p>
-      <h2 class="post-card-title">{{ post.title }}</h2>
-      <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
-    </div>
-  </a>
-  {% endfor %}
+  <!-- FILTRI CATEGORIE -->
+  <div class="cat-filters">
+    <button class="cat-filter active" onclick="filterPosts('all', this)">Tutti</button>
+    <button class="cat-filter" onclick="filterPosts('news', this)">News</button>
+    <button class="cat-filter" onclick="filterPosts('gare', this)">Gare</button>
+    <button class="cat-filter" onclick="filterPosts('atleti', this)">Atleti</button>
+    <button class="cat-filter" onclick="filterPosts('gear', this)">Gear</button>
+    <button class="cat-filter" onclick="filterPosts('training', this)">Training</button>
+    <button class="cat-filter" onclick="filterPosts('storie', this)">Storie</button>
+  </div>
+
+  <!-- GRID ARTICOLI -->
+  <div class="posts-grid">
+    {% for post in site.posts %}
+    {% assign cat = post.categories | first %}
+    <a class="post-grid-card" href="{{ post.url | relative_url }}" data-category="{{ cat }}">
+      <div class="post-grid-img cat-{{ cat }}">
+        <span class="post-grid-cat-label">{{ cat }}</span>
+        <h3 class="post-grid-img-title">{{ post.title }}</h3>
+      </div>
+      <div class="post-grid-body">
+        <p class="post-grid-meta">{{ post.date | date: "%d %b %Y" }}</p>
+        <p class="post-grid-excerpt">{{ post.excerpt | strip_html | truncate: 100 }}</p>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
 </div>
+
+<script>
+function filterPosts(cat, btn) {
+  document.querySelectorAll('.cat-filter').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.post-grid-card').forEach(card => {
+    if (cat === 'all' || card.dataset.category === cat) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>

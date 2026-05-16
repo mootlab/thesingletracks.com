@@ -22,7 +22,7 @@ layout: default
     {% for post in site.posts %}
     {% assign cat = post.categories | first %}
     <a class="post-grid-card" href="{{ post.url | relative_url }}" data-category="{{ cat }}">
-      <div class="post-grid-img cat-{{ cat }}">
+      <div class="post-grid-img cat-{{ cat }}" {% if post.image %}style="background-image: url('{{ post.image }}'); background-size: cover; background-position: center;"{% endif %}>
         <span class="post-grid-cat-label">{{ cat }}</span>
         <h3 class="post-grid-img-title">{{ post.title }}</h3>
       </div>

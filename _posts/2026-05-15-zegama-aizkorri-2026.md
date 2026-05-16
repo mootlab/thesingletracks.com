@@ -4,6 +4,7 @@ title: "Zegama-Aizkorri 2026: la cattedrale del trail compie 25 anni e Kilian to
 date: 2026-05-15
 categories: gare
 author: The Singletracks
+image: /images/zegama-2026.jpg
 excerpt: "25 edizioni, 11.529 iscritti per 225 pettorali, un villaggio di 1.500 abitanti che per un giorno diventa il centro del mondo del trail. Domenica 17 maggio va in scena Zegama-Aizkorri 2026 — e Kilian Jornet è tornato."
 ---
 
@@ -27,7 +28,7 @@ La sfida maschile è quella che tutti aspettavano.
 
 Di fronte a lui c'è **Elhousine Elazzaoui**, il campione uscente. Il marocchino nel 2025 aveva vinto staccando tutti di oltre sette minuti nel finale, grazie a un ultimo disceso da brividi. Un runner che su questi terreni ha dimostrato di saper fare la differenza. Già secondo nel 2023, ha preso sempre più confidenza con il percorso basco, e l'anno scorso ha finalmente trovato il modo di battere anche Jornet — che nel 2025 non era presente.
 
-Sarà un duello tra generazioni, stili e strategie. Jornet conosce ogni sasso di questa montagna. Elazzaoui ha la voglia e la forma per confermarsil. Attenzione anche a **Manuel Merillas** (vincitore nel 2023), **Rémi Bonnet**, e alla pattuglia italiana con **Daniel Pattis**, **Davide Magnini** e **Lorenzo Beltrami**.
+Sarà un duello tra generazioni, stili e strategie. Jornet conosce ogni sasso di questa montagna. Elazzaoui ha la voglia e la forma per confermarsi. Attenzione anche a **Manuel Merillas** (vincitore nel 2023), **Rémi Bonnet**, e alla pattuglia italiana con **Daniel Pattis**, **Davide Magnini** e **Lorenzo Beltrami**.
 
 ## Donne: il duello che tutto il trail aspettava
 

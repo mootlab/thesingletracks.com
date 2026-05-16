@@ -11,3 +11,4 @@ instagram_username: thesingletracks
 
 plugins:
   - jekyll-feed
+  - jekyll-sitemap

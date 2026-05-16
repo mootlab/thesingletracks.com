@@ -30,12 +30,12 @@ layout: default
     </svg>
   </div>
   <div class="hero-content">
-    <p class="hero-eyebrow">Trail & Ultra Running · Italia</p>
+    <p class="hero-eyebrow">Trail & Ultra Running · Dal mondo</p>
     <h1 class="hero-title">The<br><em>Singletracks</em></h1>
-    <p class="hero-sub">Notizie, storie e atleti dal cuore del trail e dell'ultra running italiano.</p>
+    <p class="hero-sub">Notizie, storie e atleti dal cuore del trail e dell'ultra running.</p>
     <div class="hero-cta">
       <a href="/blog" class="btn btn-primary">Leggi le storie</a>
-      <a href="https://instagram.com/thesingletracks" target="_blank" class="btn btn-outline">Seguici su Instagram</a>
+      <a href="https://instagram.com/thesingletracks" target="_blank" class="btn btn-outline">📸 Instagram</a>
     </div>
   </div>
   <span class="scroll-hint">Scorri</span>
@@ -43,55 +43,144 @@ layout: default
 
 <div class="divider"></div>
 
-<!-- ULTIMI POST -->
-<section id="blog" style="padding: 6rem 3rem;">
-  <div style="max-width:1200px; margin:0 auto;">
-    <div class="blog-header reveal" style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:3rem;">
-      <div>
-        <p class="section-label">Dal blog</p>
-        <h2 style="font-size:clamp(2rem,3vw,2.8rem); font-weight:300; color:var(--snow);">Ultime storie</h2>
+<!-- CONTENUTO PRINCIPALE: ARTICOLI + CALENDARIO -->
+<section style="padding: 4rem 3rem;">
+  <div style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns: 1fr 320px; gap:3rem; align-items:start;">
+
+    <!-- COLONNA SINISTRA: ARTICOLI -->
+    <div>
+      <div class="reveal" style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:2rem;">
+        <div>
+          <p class="section-label">Dal blog</p>
+          <h2 style="font-size:clamp(1.8rem,3vw,2.4rem); font-weight:300; color:var(--snow);">Ultime <em style="font-style:italic; color:var(--fog);">storie</em></h2>
+        </div>
+        <a href="/blog" style="font-family:'Space Mono',monospace; font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); text-decoration:none; border-bottom:1px solid var(--moss); padding-bottom:2px;">Tutte →</a>
       </div>
-      <a href="/blog" style="font-family:'Space Mono',monospace; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); text-decoration:none; border-bottom:1px solid var(--moss); padding-bottom:2px;">Tutte le storie →</a>
+
+      {% if site.posts.size > 0 %}
+      <div style="display:flex; flex-direction:column; gap:2px;">
+        {% for post in site.posts limit:4 %}
+        <a href="{{ post.url }}" class="home-post-card reveal">
+          {% if post.image %}
+          <div class="home-post-img">
+            <img src="{{ post.image }}" alt="{{ post.title }}" />
+          </div>
+          {% else %}
+          {% assign cat = post.categories | first %}
+          <div class="home-post-img cat-{{ cat }}"></div>
+          {% endif %}
+          <div class="home-post-body">
+            <p class="home-post-cat">{{ post.categories | first }}</p>
+            <h3 class="home-post-title">{{ post.title }}</h3>
+            <p class="home-post-excerpt">{{ post.excerpt | strip_html | truncate: 80 }}</p>
+            <p class="home-post-date">{{ post.date | date: "%d %b %Y" }}</p>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div style="background:var(--bark); border:1px solid var(--stone); padding:3rem; text-align:center;">
+        <p style="font-family:'Space Mono',monospace; font-size:0.65rem; color:var(--lichen);">In arrivo</p>
+      </div>
+      {% endif %}
     </div>
-    {% if site.posts.size > 0 %}
-    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:2px;">
-      {% for post in site.posts limit:3 %}
-      <a href="{{ post.url }}" style="background:var(--bark); border:1px solid var(--stone); padding:2rem; text-decoration:none; display:block; transition:border-color 0.3s;" class="reveal">
-        <p style="font-family:'Space Mono',monospace; font-size:0.55rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); margin-bottom:0.6rem;">{{ post.categories | first }}</p>
-        <h3 style="font-size:1.3rem; font-weight:400; color:var(--snow); margin-bottom:0.8rem; line-height:1.3;">{{ post.title }}</h3>
-        <p style="font-size:0.9rem; color:var(--lichen); line-height:1.6;">{{ post.excerpt | strip_html | truncate: 100 }}</p>
-        <p style="font-family:'Space Mono',monospace; font-size:0.55rem; color:var(--stone); text-transform:uppercase; margin-top:1rem;">{{ post.date | date: "%d %b %Y" }}</p>
-      </a>
-      {% endfor %}
+
+    <!-- COLONNA DESTRA: CALENDARIO AUTOMATICO -->
+    <div class="reveal">
+      <div style="position:sticky; top:6rem;">
+        <p class="section-label">📅 Prossime gare</p>
+        <div class="calendario">
+
+          {% assign oggi = 'now' | date: '%Y-%m-%d' %}
+          {% assign tutte = site.data.gare | where_exp: "gara", "gara.data >= oggi" | sort: "data" %}
+          {% assign prossime = tutte | slice: 0, 5 %}
+          {% for gara in prossime %}
+          <div class="cal-item">
+            <div class="cal-data">
+              <span class="cal-giorno">{{ gara.data | date: "%d" }}</span>
+              <span class="cal-mese">{{ gara.data | date: "%b" | upcase }}</span>
+            </div>
+            <div class="cal-info">
+              <p class="cal-nome">{{ gara.nome }}</p>
+              <p class="cal-luogo">{{ gara.luogo }}</p>
+              <span class="cal-tag">{{ gara.tag }}</span>
+            </div>
+          </div>
+          {% endfor %}
+
+          <a href="/calendario" style="display:block; text-align:center; font-family:'Space Mono',monospace; font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); text-decoration:none; margin-top:1.5rem; padding-top:1rem; border-top:1px solid var(--stone);">Calendario completo →</a>
+
+        </div>
+      </div>
     </div>
-    {% else %}
-    <div style="background:var(--bark); border:1px solid var(--stone); padding:4rem; text-align:center;">
-      <p style="font-family:'Space Mono',monospace; font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--lichen); margin-bottom:1rem;">In arrivo</p>
-      <h3 style="font-size:2rem; font-weight:300; color:var(--snow); font-style:italic;">Le prime storie stanno per arrivare.</h3>
-    </div>
-    {% endif %}
+
   </div>
 </section>
 
-<!-- INSTAGRAM -->
-<section style="background:var(--bark); border-top:1px solid var(--stone); border-bottom:1px solid var(--stone); padding:6rem 3rem; text-align:center;">
-  <div style="max-width:700px; margin:0 auto;" class="reveal">
-    <p class="section-label">Social</p>
-    <p style="font-size:1rem; color:var(--lichen); margin-bottom:1rem;">Seguici ogni giorno sui sentieri</p>
-    <h2 style="font-size:clamp(2.5rem,5vw,4rem); font-weight:300; color:var(--snow); font-style:italic; margin-bottom:1rem;">@thesingletracks</h2>
-    <p style="font-size:1rem; color:var(--lichen); margin-bottom:2rem;">Foto, video, notizie e molto altro.<br>La community trail italiana ti aspetta.</p>
-    <a href="https://instagram.com/thesingletracks" target="_blank" class="btn btn-primary">Apri Instagram</a>
+<!-- COUNTDOWN + NEWSLETTER -->
+<section style="padding: 0 3rem 4rem;">
+  <div style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns: 1fr 1fr; gap:2px;">
+
+    <!-- COUNTDOWN -->
+    <div style="background:var(--bark); border:1px solid var(--stone); padding:2rem;">
+      <p class="section-label">⏱️ Prossima grande gara</p>
+      <h2 style="font-size:1.4rem; font-weight:400; color:var(--snow); margin-bottom:0.3rem;">UTMB Mont-Blanc</h2>
+      <p style="font-size:0.8rem; color:var(--lichen); margin-bottom:1.5rem;">🇫🇷 Chamonix · 28 Agosto 2026</p>
+      <div style="display:flex; gap:1rem; align-items:flex-start;">
+        <div style="text-align:center;">
+          <div id="cd-giorni" style="font-family:'Space Mono',monospace; font-size:2.5rem; font-weight:700; color:var(--accent); line-height:1;">--</div>
+          <div style="font-family:'Space Mono',monospace; font-size:0.5rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--stone); margin-top:0.3rem;">Giorni</div>
+        </div>
+        <div style="font-family:'Space Mono',monospace; font-size:2rem; color:var(--stone); padding-top:0.2rem;">:</div>
+        <div style="text-align:center;">
+          <div id="cd-ore" style="font-family:'Space Mono',monospace; font-size:2.5rem; font-weight:700; color:var(--accent); line-height:1;">--</div>
+          <div style="font-family:'Space Mono',monospace; font-size:0.5rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--stone); margin-top:0.3rem;">Ore</div>
+        </div>
+        <div style="font-family:'Space Mono',monospace; font-size:2rem; color:var(--stone); padding-top:0.2rem;">:</div>
+        <div style="text-align:center;">
+          <div id="cd-minuti" style="font-family:'Space Mono',monospace; font-size:2.5rem; font-weight:700; color:var(--accent); line-height:1;">--</div>
+          <div style="font-family:'Space Mono',monospace; font-size:0.5rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--stone); margin-top:0.3rem;">Minuti</div>
+        </div>
+      </div>
+      <a href="/blog" style="display:inline-block; margin-top:1.5rem; font-family:'Space Mono',monospace; font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); text-decoration:none; border-bottom:1px solid var(--moss);">→ Leggi la preview</a>
+    </div>
+
+    <!-- NEWSLETTER -->
+    <div style="background:var(--bark); border:1px solid var(--stone); padding:2rem;">
+      <p class="section-label">📧 Newsletter</p>
+      <h2 style="font-size:1.4rem; font-weight:300; color:var(--snow); margin-bottom:0.5rem;">Resta sul <em style="font-style:italic; color:var(--fog);">sentiero</em></h2>
+      <p style="font-size:0.85rem; color:var(--lichen); line-height:1.6; margin-bottom:1.5rem;">Le migliori storie trail, risultati e notizie direttamente nella tua inbox. Ogni settimana.</p>
+      <div style="display:flex; flex-direction:column; gap:0.8rem;">
+        <input type="email" placeholder="tua@email.com" style="background:var(--stone); border:1px solid var(--stone); color:var(--snow); font-family:'Cormorant Garamond',serif; font-size:1rem; padding:0.8rem 1rem; outline:none; width:100%; box-sizing:border-box;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--stone)'"/>
+        <button onclick="alert('Grazie! Ti aggiungeremo presto 🏔️')" class="btn btn-primary" style="width:100%; text-align:center;">Iscriviti gratis</button>
+      </div>
+      <p style="font-family:'Space Mono',monospace; font-size:0.5rem; color:var(--stone); margin-top:1rem; letter-spacing:0.05em;">Zero spam. Cancellati quando vuoi.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SOCIAL -->
+<section style="background:var(--bark); border-top:1px solid var(--stone); border-bottom:1px solid var(--stone); padding:3rem;">
+  <div style="max-width:700px; margin:0 auto; text-align:center;" class="reveal">
+    <p class="section-label">Seguici</p>
+    <p style="font-size:1rem; color:var(--lichen); margin-bottom:1.5rem;">Foto, video, risultati e storie ogni giorno.</p>
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a href="https://instagram.com/thesingletracks" target="_blank" class="btn btn-primary">📸 Instagram</a>
+      <a href="https://www.facebook.com/thesingletracks" target="_blank" class="btn btn-outline">👍 Facebook</a>
+      <a href="https://www.youtube.com/@thesingletracks" target="_blank" class="btn btn-outline">▶️ YouTube</a>
+    </div>
   </div>
 </section>
 
 <style>
   .hero {
     position: relative;
-    min-height: 100vh;
+    min-height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 0 3rem 5rem;
+    padding: 0 3rem 3rem;
     overflow: hidden;
   }
   .hero-mountains { position: absolute; inset: 0; width: 100%; height: 100%; }
@@ -113,26 +202,26 @@ layout: default
   }
   .hero-content { position: relative; z-index: 2; max-width: 800px; }
   .hero-eyebrow {
-    font-family: 'Space Mono', monospace; font-size: 0.65rem;
+    font-family: 'Space Mono', monospace; font-size: 0.6rem;
     letter-spacing: 0.35em; text-transform: uppercase; color: var(--accent);
-    margin-bottom: 1.2rem; opacity: 0;
+    margin-bottom: 0.8rem; opacity: 0;
     animation: fadeUp 1s ease forwards 0.3s;
   }
   .hero-title {
-    font-size: clamp(3.5rem, 8vw, 7rem); font-weight: 300;
+    font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 300;
     line-height: 0.95; letter-spacing: -0.02em; color: var(--snow);
-    margin-bottom: 1.5rem; opacity: 0;
+    margin-bottom: 1rem; opacity: 0;
     animation: fadeUp 1s ease forwards 0.6s;
   }
   .hero-title em { font-style: italic; color: var(--fog); }
   .hero-sub {
-    font-size: 1.15rem; color: var(--lichen); max-width: 480px;
-    margin-bottom: 2.5rem; opacity: 0;
+    font-size: 1rem; color: var(--lichen); max-width: 480px;
+    margin-bottom: 1.5rem; opacity: 0;
     animation: fadeUp 1s ease forwards 0.9s;
   }
-  .hero-cta { display: flex; gap: 1.2rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 1s ease forwards 1.2s; }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 1s ease forwards 1.2s; }
   .scroll-hint {
-    position: absolute; bottom: 2rem; right: 3rem;
+    position: absolute; bottom: 1rem; right: 3rem;
     font-family: 'Space Mono', monospace; font-size: 0.6rem;
     letter-spacing: 0.2em; text-transform: uppercase; color: var(--stone);
     display: flex; align-items: center; gap: 0.8rem;
@@ -140,8 +229,138 @@ layout: default
     animation: fadeIn 1s ease forwards 2s;
   }
   .scroll-hint::before {
-    content: ''; width: 1px; height: 40px;
+    content: ''; width: 1px; height: 30px;
     background: linear-gradient(to bottom, var(--stone), transparent);
+  }
+
+  .home-post-card {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 0;
+    text-decoration: none;
+    background: var(--bark);
+    border: 1px solid var(--stone);
+    transition: border-color 0.3s;
+    overflow: hidden;
+  }
+  .home-post-card:hover { border-color: var(--lichen); }
+  .home-post-img {
+    width: 140px;
+    height: 100%;
+    min-height: 100px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .home-post-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s;
+  }
+  .home-post-card:hover .home-post-img img { transform: scale(1.05); }
+  .home-post-body { padding: 1rem 1.2rem; }
+  .home-post-cat {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.5rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+  .home-post-title {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--snow);
+    line-height: 1.3;
+    margin-bottom: 0.4rem;
+  }
+  .home-post-excerpt {
+    font-size: 0.8rem;
+    color: var(--lichen);
+    line-height: 1.5;
+  }
+  .home-post-date {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.5rem;
+    color: var(--stone);
+    text-transform: uppercase;
+    margin-top: 0.6rem;
+  }
+
+  .calendario {
+    background: var(--bark);
+    border: 1px solid var(--stone);
+    padding: 1.5rem;
+  }
+  .cal-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--stone);
+  }
+  .cal-item:last-of-type { border-bottom: none; }
+  .cal-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 36px;
+    padding-top: 2px;
+  }
+  .cal-giorno {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .cal-mese {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.45rem;
+    letter-spacing: 0.1em;
+    color: var(--stone);
+    text-transform: uppercase;
+  }
+  .cal-info { flex: 1; }
+  .cal-nome {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--snow);
+    margin-bottom: 0.2rem;
+    line-height: 1.2;
+  }
+  .cal-luogo {
+    font-size: 0.75rem;
+    color: var(--lichen);
+    margin-bottom: 0.3rem;
+  }
+  .cal-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.45rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: var(--stone);
+    color: var(--fog);
+    padding: 0.15rem 0.4rem;
+    border-radius: 2px;
+  }
+
+  @media (max-width: 900px) {
+    .hero { padding: 0 1.5rem 2.5rem; min-height: 55vh; }
+    section[style*="padding: 4rem 3rem"] { padding: 3rem 1.5rem !important; }
+    div[style*="grid-template-columns: 1fr 320px"] {
+      grid-template-columns: 1fr !important;
+    }
+    div[style*="grid-template-columns: 1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+    }
+    .home-post-card { grid-template-columns: 110px 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .home-post-card { grid-template-columns: 90px 1fr; }
+    .home-post-img { width: 90px; }
   }
 </style>
 
@@ -167,4 +386,25 @@ layout: default
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 }).observe(el);
   });
+
+  // COUNTDOWN
+  const dataGara = new Date('2026-08-28T09:00:00');
+  function aggiornaCountdown() {
+    const ora = new Date();
+    const diff = dataGara - ora;
+    if (diff <= 0) {
+      document.getElementById('cd-giorni').textContent = '00';
+      document.getElementById('cd-ore').textContent = '00';
+      document.getElementById('cd-minuti').textContent = '00';
+      return;
+    }
+    const giorni = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const ore = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minuti = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    document.getElementById('cd-giorni').textContent = String(giorni).padStart(2, '0');
+    document.getElementById('cd-ore').textContent = String(ore).padStart(2, '0');
+    document.getElementById('cd-minuti').textContent = String(minuti).padStart(2, '0');
+  }
+  aggiornaCountdown();
+  setInterval(aggiornaCountdown, 60000);
 </script>

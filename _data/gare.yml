@@ -1,0 +1,239 @@
+- nome: "Zegama-Aizkorri Marathon"
+  data: "2026-05-17"
+  luogo: "🇪🇸 Paesi Baschi, Spagna"
+  tag: "GTWS"
+
+- nome: "100km del Passatore"
+  data: "2026-05-23"
+  luogo: "🇮🇹 Firenze → Faenza"
+  tag: "ITA"
+
+- nome: "Mozart 100 by UTMB"
+  data: "2026-05-23"
+  luogo: "🇦🇹 Austria"
+  tag: "UTMB"
+
+- nome: "Ledro Sky Trentino"
+  data: "2026-05-24"
+  luogo: "🇮🇹 Ledro, Trentino"
+  tag: "GTWS"
+
+- nome: "Trail 100 Andorra by UTMB"
+  data: "2026-06-13"
+  luogo: "🇦🇩 Ordino, Andorra"
+  tag: "UTMB"
+
+- nome: "Lake Toba by UTMB"
+  data: "2026-06-13"
+  luogo: "🇮🇩 Indonesia"
+  tag: "UTMB"
+
+- nome: "Zugspitz Ultra Trail ZUT100"
+  data: "2026-06-18"
+  luogo: "🇩🇪 Garmisch-Partenkirchen"
+  tag: "UTMB"
+
+- nome: "Lavaredo Ultra Trail"
+  data: "2026-06-24"
+  luogo: "🇮🇹 Cortina d'Ampezzo"
+  tag: "UTMB"
+
+- nome: "Cervino Matterhorn Ultra Race"
+  data: "2026-06-26"
+  luogo: "🇮🇹 Cervinia"
+  tag: "ITA"
+
+- nome: "HOKA Val d'Aran by UTMB"
+  data: "2026-07-01"
+  luogo: "🇪🇸 Vielha, Spagna"
+  tag: "UTMB"
+
+- nome: "Quebec Mega Trail"
+  data: "2026-07-05"
+  luogo: "🇨🇦 Quebec, Canada"
+  tag: "GTWS"
+
+- nome: "Restonica Trail by UTMB"
+  data: "2026-07-09"
+  luogo: "🇫🇷 Corsica"
+  tag: "UTMB"
+
+- nome: "Trail Verbier St Bernard"
+  data: "2026-07-10"
+  luogo: "🇨🇭 Verbier, Svizzera"
+  tag: "UTMB"
+
+- nome: "Gran Trail Courmayeur"
+  data: "2026-07-10"
+  luogo: "🇮🇹 Courmayeur"
+  tag: "ITA"
+
+- nome: "Dolomyths Run"
+  data: "2026-07-12"
+  luogo: "🇮🇹 Canazei, Dolomiti"
+  tag: "GTWS"
+
+- nome: "Eiger Ultra Trail E250"
+  data: "2026-07-15"
+  luogo: "🇨🇭 Grindelwald"
+  tag: "UTMB"
+
+- nome: "Monte Rosa WalserWaeg by UTMB"
+  data: "2026-07-17"
+  luogo: "🇮🇹 Aosta"
+  tag: "UTMB"
+
+- nome: "100 Miglia Monviso"
+  data: "2026-07-17"
+  luogo: "🇮🇹 Saluzzo"
+  tag: "ITA"
+
+- nome: "Bucovina Ultra Rocks by UTMB"
+  data: "2026-07-24"
+  luogo: "🇷🇴 Romania"
+  tag: "UTMB"
+
+- nome: "Speedgoat Mountain Races"
+  data: "2026-07-24"
+  luogo: "🇺🇸 Snowbird, Utah"
+  tag: "UTMB"
+
+- nome: "Salomon Pitz Alpine Glacier Trail"
+  data: "2026-08-01"
+  luogo: "🇦🇹 Austria"
+  tag: "GTWS"
+
+- nome: "Gauja Trail by UTMB"
+  data: "2026-08-01"
+  luogo: "🇱🇻 Sigulda, Lettonia"
+  tag: "UTMB"
+
+- nome: "KAT100 by UTMB"
+  data: "2026-08-06"
+  luogo: "🇦🇹 Fieberbrunn"
+  tag: "UTMB"
+
+- nome: "Sierre-Zinal"
+  data: "2026-08-08"
+  luogo: "🇨🇭 Svizzera"
+  tag: "GTWS"
+
+- nome: "Ultra Trail Whistler by UTMB"
+  data: "2026-08-22"
+  luogo: "🇨🇦 Whistler, Canada"
+  tag: "UTMB"
+
+- nome: "UTMB TDS"
+  data: "2026-08-24"
+  luogo: "🇮🇹 Courmayeur → Chamonix"
+  tag: "UTMB"
+
+- nome: "UTMB OCC"
+  data: "2026-08-27"
+  luogo: "🇨🇭 Orsières → Chamonix"
+  tag: "UTMB"
+
+- nome: "HOKA UTMB Mont-Blanc"
+  data: "2026-08-28"
+  luogo: "🇫🇷 Chamonix"
+  tag: "UTMB"
+
+- nome: "UTMB CCC"
+  data: "2026-08-28"
+  luogo: "🇮🇹 Courmayeur → Chamonix"
+  tag: "UTMB"
+
+- nome: "Tor des Géants"
+  data: "2026-09-11"
+  luogo: "🇮🇹 Courmayeur"
+  tag: "ITA"
+
+- nome: "Wildstrubel by UTMB"
+  data: "2026-09-11"
+  luogo: "🇨🇭 Crans-Montana"
+  tag: "UTMB"
+
+- nome: "Adamello Ultra-Trail"
+  data: "2026-09-13"
+  luogo: "🇮🇹 Vezza d'Oglio"
+  tag: "ITA"
+
+- nome: "Julian Alps Trail Run by UTMB"
+  data: "2026-09-18"
+  luogo: "🇸🇮 Slovenia"
+  tag: "UTMB"
+
+- nome: "Myoko Trail"
+  data: "2026-09-20"
+  luogo: "🇯🇵 Giappone"
+  tag: "GTWS"
+
+- nome: "Nice Côte d'Azur by UTMB"
+  data: "2026-09-25"
+  luogo: "🇫🇷 Auron, Nizza"
+  tag: "UTMB"
+
+- nome: "Jinshanling Great Wall Trail"
+  data: "2026-09-27"
+  luogo: "🇨🇳 Grande Muraglia, Cina"
+  tag: "GTWS"
+
+- nome: "Chihuahua by UTMB"
+  data: "2026-10-01"
+  luogo: "🇲🇽 Messico"
+  tag: "UTMB"
+
+- nome: "TransJeju by UTMB"
+  data: "2026-10-02"
+  luogo: "🇰🇷 Jeju, Corea del Sud"
+  tag: "UTMB"
+
+- nome: "Salomon Mitja Pirineu"
+  data: "2026-10-04"
+  luogo: "🇪🇸 Pirenei, Spagna"
+  tag: "GTWS"
+
+- nome: "Puglia by UTMB"
+  data: "2026-10-23"
+  luogo: "🇮🇹 Matera"
+  tag: "UTMB"
+
+- nome: "Muju Trail Grand Finale"
+  data: "2026-10-24"
+  luogo: "🇰🇷 Corea del Sud"
+  tag: "GTWS"
+
+- nome: "Mallorca by UTMB"
+  data: "2026-10-30"
+  luogo: "🇪🇸 Mallorca"
+  tag: "UTMB"
+
+- nome: "TransLantau by UTMB"
+  data: "2026-11-13"
+  luogo: "🇭🇰 Hong Kong"
+  tag: "UTMB"
+
+- nome: "Bariloche Patagonia by UTMB"
+  data: "2026-11-20"
+  luogo: "🇦🇷 Bariloche, Patagonia"
+  tag: "UTMB"
+
+- nome: "Ultra-Trail Kosciuszko by UTMB"
+  data: "2026-11-27"
+  luogo: "🇦🇺 Australia"
+  tag: "UTMB"
+
+- nome: "Oman by UTMB"
+  data: "2026-12-10"
+  luogo: "🇴🇲 Al Hamra, Oman"
+  tag: "UTMB"
+
+- nome: "Transgrancanaria Classic"
+  data: "2027-02-24"
+  luogo: "🇪🇸 Gran Canaria"
+  tag: "CLASSICA"
+
+- nome: "Tarawera Ultra-Trail by UTMB"
+  data: "2027-02-13"
+  luogo: "🇳🇿 Rotorua, Nuova Zelanda"
+  tag: "UTMB"

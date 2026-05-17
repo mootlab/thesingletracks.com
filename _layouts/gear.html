@@ -1,0 +1,61 @@
+---
+layout: default
+---
+
+<div class="blog-list-container">
+  <p class="section-label">Attrezzatura</p>
+  <h1 class="blog-list-title">Gear & <em>Recensioni</em></h1>
+  <p style="color:var(--lichen); margin-bottom:3rem; font-size:1rem;">Scarpe, zaini, abbigliamento e accessori per trail e ultra running — schede tecniche, opinioni e consigli per scegliere il meglio.</p>
+
+  <!-- CATEGORIE -->
+  <div class="cat-filters" style="margin-bottom:3rem;">
+    <button class="cat-filter active" onclick="filterGear('all', this)">Tutto</button>
+    <button class="cat-filter" onclick="filterGear('scarpe', this)">👟 Scarpe</button>
+    <button class="cat-filter" onclick="filterGear('zaini', this)">🎒 Zaini</button>
+    <button class="cat-filter" onclick="filterGear('abbigliamento', this)">🧥 Abbigliamento</button>
+    <button class="cat-filter" onclick="filterGear('alimentazione', this)">🥤 Alimentazione</button>
+    <button class="cat-filter" onclick="filterGear('tecnologia', this)">⌚ Tecnologia</button>
+    <button class="cat-filter" onclick="filterGear('accessori', this)">🧦 Accessori</button>
+  </div>
+
+  <!-- GRID RECENSIONI -->
+  <div class="posts-grid">
+    {% assign gear_posts = site.posts | where_exp: "post", "post.categories contains 'gear'" %}
+    {% for post in gear_posts %}
+    {% assign cat = post.gear_category | default: 'gear' %}
+    <a class="post-grid-card" href="{{ post.url | relative_url }}" data-gear="{{ post.gear_category }}">
+      <div class="post-grid-img cat-gear" {% if post.image %}style="background-image: url('{{ post.image }}'); background-size: cover; background-position: center;"{% endif %}>
+        <span class="post-grid-cat-label">{{ post.gear_category | default: 'gear' }}</span>
+        <h3 class="post-grid-img-title">{{ post.title }}</h3>
+      </div>
+      <div class="post-grid-body">
+        <p class="post-grid-meta">{{ post.date | date: "%d %b %Y" }} · ⭐ {{ post.voto }}/10</p>
+        <p class="post-grid-excerpt">{{ post.excerpt | strip_html | truncate: 100 }}</p>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+
+  {% assign gear_posts = site.posts | where_exp: "post", "post.categories contains 'gear'" %}
+  {% if gear_posts.size == 0 %}
+  <div style="background:var(--bark); border:1px solid var(--stone); padding:4rem; text-align:center; margin-top:2rem;">
+    <p style="font-family:'Space Mono',monospace; font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--lichen); margin-bottom:1rem;">In arrivo</p>
+    <h3 style="font-size:2rem; font-weight:300; color:var(--snow); font-style:italic;">Le prime recensioni stanno per arrivare.</h3>
+  </div>
+  {% endif %}
+
+</div>
+
+<script>
+function filterGear(cat, btn) {
+  document.querySelectorAll('.cat-filter').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.post-grid-card').forEach(card => {
+    if (cat === 'all' || card.dataset.gear === cat) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>

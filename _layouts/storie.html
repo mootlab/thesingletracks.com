@@ -1,0 +1,59 @@
+---
+layout: default
+---
+
+<div class="blog-list-container">
+  <p class="section-label">Storie dal sentiero</p>
+  <h1 class="blog-list-title">Storie di <em>uomini e montagne</em></h1>
+  <p style="color:var(--lichen); font-size:1.1rem; line-height:1.8; max-width:600px; margin-bottom:3rem;">Campioni, scalatori, eroi sconosciuti. Persone che hanno lasciato il segno sui sentieri e nella vita. Storie vere, raccontate con rispetto.</p>
+
+  <!-- FILTRI -->
+  <div class="cat-filters" style="margin-bottom:3rem;">
+    <button class="cat-filter active" onclick="filterStorie('all', this)">Tutte</button>
+    <button class="cat-filter" onclick="filterStorie('alpinismo', this)">🏔️ Alpinismo</button>
+    <button class="cat-filter" onclick="filterStorie('campioni', this)">🏆 Campioni</button>
+    <button class="cat-filter" onclick="filterStorie('imprese', this)">💪 Imprese</button>
+    <button class="cat-filter" onclick="filterStorie('eroi', this)">❤️ Eroi</button>
+  </div>
+
+  <!-- GRID STORIE -->
+  <div class="posts-grid">
+    {% assign storie_posts = site.posts | where_exp: "post", "post.categories contains 'storie'" %}
+    {% for post in storie_posts %}
+    {% assign cat = post.storia_category | default: 'storie' %}
+    <a class="post-grid-card" href="{{ post.url | relative_url }}" data-storia="{{ post.storia_category }}">
+      <div class="post-grid-img cat-storie" {% if post.image %}style="background-image: url('{{ post.image }}'); background-size: cover; background-position: center;"{% endif %}>
+        <span class="post-grid-cat-label">{{ post.storia_category | default: 'storia' }}</span>
+        <h3 class="post-grid-img-title">{{ post.title }}</h3>
+      </div>
+      <div class="post-grid-body">
+        <p class="post-grid-meta">{{ post.date | date: "%d %b %Y" }}</p>
+        <p class="post-grid-excerpt">{{ post.excerpt | strip_html | truncate: 100 }}</p>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+
+  {% assign storie_posts = site.posts | where_exp: "post", "post.categories contains 'storie'" %}
+  {% if storie_posts.size == 0 %}
+  <div style="background:var(--bark); border:1px solid var(--stone); padding:4rem; text-align:center; margin-top:2rem;">
+    <p style="font-family:'Space Mono',monospace; font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--lichen); margin-bottom:1rem;">In arrivo</p>
+    <h3 style="font-size:2rem; font-weight:300; color:var(--snow); font-style:italic;">Le prime storie stanno per arrivare.</h3>
+  </div>
+  {% endif %}
+
+</div>
+
+<script>
+function filterStorie(cat, btn) {
+  document.querySelectorAll('.cat-filter').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.post-grid-card').forEach(card => {
+    if (cat === 'all' || card.dataset.storia === cat) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>

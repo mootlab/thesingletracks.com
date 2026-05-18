@@ -17,8 +17,35 @@
     gtag('js', new Date());
     gtag('config', 'G-2LMDQ6TL49');
   </script>
+  <!-- Google Translate -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'it',
+        includedLanguages: 'it,en,es',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
+
+  <!-- BARRA NOTIZIE -->
+  <div class="news-bar">
+    <div class="news-bar-inner">
+      <span class="news-bar-label">🏔️ LIVE</span>
+      <span class="news-bar-items">
+        <a href="/calendario">🇮🇹 100km del Passatore — 23 Maggio</a>
+        <span class="news-bar-sep">·</span>
+        <a href="/calendario">🇮🇹 Ledro Sky Trentino GTWS — 24 Maggio</a>
+        <span class="news-bar-sep">·</span>
+        <a href="/calendario">🇫🇷 UTMB Mont-Blanc — 28 Agosto</a>
+      </span>
+      <div id="google_translate_element"></div>
+    </div>
+  </div>
 
   <nav>
     <a class="nav-logo" href="{{ '/' | relative_url }}">The Singletracks</a>
@@ -26,10 +53,11 @@
       <li><a href="{{ '/' | relative_url }}">Home</a></li>
       <li><a href="{{ '/blog' | relative_url }}">Storie</a></li>
       <li><a href="{{ '/gear' | relative_url }}">Gear</a></li>
-      <li><a href="https://instagram.com/thesingletracks" target="_blank">Instagram</a></li>
-      <li><a href="https://www.facebook.com/thesingletracks" target="_blank">Facebook</a></li>
+      <li><a href="{{ '/shop' | relative_url }}">Shop</a></li>
+      <li><a href="{{ '/calendario' | relative_url }}">Calendario</a></li>
+      <li><a href="{{ '/donazioni' | relative_url }}">Donazioni</a></li>
       <li><a href="https://www.youtube.com/@thesingletracks" target="_blank">YouTube</a></li>
-      <li><a href="{{ '/contatti' | relative_url }}">Contatti</a></li>
+      <li><a href="https://instagram.com/thesingletracks" target="_blank">Instagram</a></li>
     </ul>
   </nav>
 
@@ -41,8 +69,11 @@
     <span class="footer-logo">The Singletracks</span>
     <div class="footer-links">
       <a href="{{ '/' | relative_url }}">Home</a>
-      <a href="{{ '/blog' | relative_url }}">Blog</a>
+      <a href="{{ '/blog' | relative_url }}">Storie</a>
       <a href="{{ '/gear' | relative_url }}">Gear</a>
+      <a href="{{ '/shop' | relative_url }}">Shop</a>
+      <a href="{{ '/calendario' | relative_url }}">Calendario</a>
+      <a href="{{ '/donazioni' | relative_url }}">Donazioni</a>
       <a href="https://instagram.com/thesingletracks" target="_blank">Instagram</a>
       <a href="https://www.facebook.com/thesingletracks" target="_blank">Facebook</a>
       <a href="https://www.youtube.com/@thesingletracks" target="_blank">YouTube</a>

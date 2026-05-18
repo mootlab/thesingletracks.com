@@ -13,14 +13,13 @@ layout: default
     <button class="cat-filter" onclick="filterPosts('gare', this)">Gare</button>
     <button class="cat-filter" onclick="filterPosts('atleti', this)">Atleti</button>
     <button class="cat-filter" onclick="filterPosts('training', this)">Training</button>
-    <button class="cat-filter" onclick="filterPosts('storie', this)">Storie</button>
   </div>
 
   <!-- GRID ARTICOLI -->
   <div class="posts-grid">
     {% for post in site.posts %}
     {% assign cat = post.categories | first %}
-    {% if cat != 'gear' %}
+    {% if cat != 'gear' and cat != 'storie' %}
     <a class="post-grid-card" href="{{ post.url | relative_url }}" data-category="{{ cat }}">
       <div class="post-grid-img cat-{{ cat }}" {% if post.image %}style="background-image: url('{{ post.image }}'); background-size: cover; background-position: center;"{% endif %}>
         <span class="post-grid-cat-label">{{ cat }}</span>

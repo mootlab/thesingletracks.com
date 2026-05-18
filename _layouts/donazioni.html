@@ -1,0 +1,51 @@
+---
+layout: default
+---
+
+<div class="blog-list-container">
+  <p class="section-label">Supporta il progetto</p>
+  <h1 class="blog-list-title">Credi in <em>The Singletracks</em>?</h1>
+  <p style="color:var(--lichen); font-size:1.1rem; line-height:1.8; max-width:600px; margin-bottom:3rem;">The Singletracks è un progetto indipendente, fatto con passione per il trail e l'ultra running. Nessun editore, nessun investitore — solo amore per i sentieri e voglia di raccontare storie vere. Se ti piace quello che facciamo e vuoi aiutarci a crescere, anche una donazione simbolica fa la differenza.</p>
+
+  <div style="display:grid; grid-template-columns: 1fr 1fr; gap:2px; max-width:800px;">
+
+    <!-- PAYPAL -->
+    <div style="background:var(--bark); border:1px solid var(--stone); padding:2.5rem;">
+      <p class="section-label">💳 Donazione con PayPal</p>
+      <h2 style="font-size:1.6rem; font-weight:300; color:var(--snow); margin-bottom:0.8rem;">Dona con <em style="font-style:italic; color:var(--fog);">PayPal</em></h2>
+      <p style="font-size:0.85rem; color:var(--lichen); line-height:1.6; margin-bottom:1.5rem;">Veloce, sicuro, qualsiasi cifra. Anche 1€ conta — davvero.</p>
+      <a href="https://www.paypal.com/donate/?hosted_button_id=thesingletracks&business=thesingletracks@gmail.com" target="_blank" class="btn btn-primary" style="display:inline-block; width:100%; text-align:center; box-sizing:border-box;">
+        ☕ Offrici un caffè
+      </a>
+      <p style="font-family:'Space Mono',monospace; font-size:0.5rem; color:var(--stone); margin-top:1rem;">thesingletracks@gmail.com</p>
+    </div>
+
+    <!-- BITCOIN -->
+    <div style="background:var(--bark); border:1px solid var(--stone); padding:2.5rem;">
+      <p class="section-label">₿ Donazione in Bitcoin</p>
+      <h2 style="font-size:1.6rem; font-weight:300; color:var(--snow); margin-bottom:0.8rem;">Dona in <em style="font-style:italic; color:var(--fog);">Bitcoin</em></h2>
+      <p style="font-size:0.85rem; color:var(--lichen); line-height:1.6; margin-bottom:1rem;">Per chi crede nei sentieri e nel futuro della finanza decentralizzata.</p>
+      <div style="background:var(--stone); padding:1rem; border-radius:2px; margin-bottom:0.8rem;">
+        <p style="font-family:'Space Mono',monospace; font-size:0.55rem; color:var(--accent); word-break:break-all; line-height:1.6;">bc1qpczlkwqvmmqruc3pq7far2rzshpt4rvxa8rzxz</p>
+      </div>
+      <button onclick="navigator.clipboard.writeText('bc1qpczlkwqvmmqruc3pq7far2rzshpt4rvxa8rzxz').then(() => { this.textContent='✅ Copiato!'; setTimeout(() => this.textContent='📋 Copia indirizzo', 2000); })" class="btn btn-outline" style="width:100%; text-align:center; box-sizing:border-box; cursor:pointer;">
+        📋 Copia indirizzo
+      </button>
+    </div>
+
+  </div>
+
+  <div style="max-width:800px; margin-top:3rem; padding:2rem; background:var(--bark); border:1px solid var(--stone); border-left:2px solid var(--accent);">
+    <p style="font-size:1rem; color:var(--fog); line-height:1.8; font-style:italic;">"Ogni sentiero inizia con un primo passo. Ogni grande media inizia con chi ci crede per primo. Grazie."</p>
+    <p style="font-family:'Space Mono',monospace; font-size:0.55rem; color:var(--accent); margin-top:0.8rem; text-transform:uppercase; letter-spacing:0.2em;">— The Singletracks</p>
+  </div>
+
+</div>
+
+<style>
+@media (max-width: 600px) {
+  div[style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+</style>

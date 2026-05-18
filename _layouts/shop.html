@@ -1,0 +1,154 @@
+---
+layout: default
+---
+
+<div class="blog-list-container">
+  <p class="section-label">Shop</p>
+  <h1 class="blog-list-title">The Singletracks <em>Shop</em></h1>
+  <p style="color:var(--lichen); font-size:1.1rem; line-height:1.8; max-width:600px; margin-bottom:3rem;">Prodotti artigianali, digitali e merchandising. Ogni acquisto supporta direttamente The Singletracks e il progetto editoriale indipendente.</p>
+
+  <!-- CATEGORIE -->
+  <div class="cat-filters" style="margin-bottom:3rem;">
+    <button class="cat-filter active" onclick="filterShop('all', this)">Tutto</button>
+    <button class="cat-filter" onclick="filterShop('artigianato', this)">🪵 Artigianato</button>
+    <button class="cat-filter" onclick="filterShop('digitale', this)">📱 Digitale</button>
+    <button class="cat-filter" onclick="filterShop('merchandising', this)">👕 Merchandising</button>
+  </div>
+
+  <!-- PRODOTTI -->
+  <div class="shop-grid">
+
+    <!-- ARTIGIANATO -->
+    <div class="shop-card" data-shop="artigianato">
+      <div class="shop-card-img cat-storie">
+        <span style="font-size:3rem;">🪵</span>
+      </div>
+      <div class="shop-card-body">
+        <p class="shop-card-cat">🪵 Artigianato</p>
+        <h3 class="shop-card-title">Prodotti Artigianali</h3>
+        <p class="shop-card-desc">Oggetti unici fatti a mano — legno, natura, trail. Presto disponibili.</p>
+        <p class="shop-card-price">Prossimamente</p>
+        <button class="btn btn-outline" style="width:100%; margin-top:1rem; opacity:0.5; cursor:not-allowed;">In arrivo</button>
+      </div>
+    </div>
+
+    <!-- DIGITALE -->
+    <div class="shop-card" data-shop="digitale">
+      <div class="shop-card-img cat-training">
+        <span style="font-size:3rem;">📱</span>
+      </div>
+      <div class="shop-card-body">
+        <p class="shop-card-cat">📱 Digitale</p>
+        <h3 class="shop-card-title">Guide & Contenuti Digitali</h3>
+        <p class="shop-card-desc">Foto, guide trail, ebook e corsi. Presto disponibili.</p>
+        <p class="shop-card-price">Prossimamente</p>
+        <button class="btn btn-outline" style="width:100%; margin-top:1rem; opacity:0.5; cursor:not-allowed;">In arrivo</button>
+      </div>
+    </div>
+
+    <!-- MERCHANDISING -->
+    <div class="shop-card" data-shop="merchandising">
+      <div class="shop-card-img cat-news">
+        <span style="font-size:3rem;">👕</span>
+      </div>
+      <div class="shop-card-body">
+        <p class="shop-card-cat">👕 Merchandising</p>
+        <h3 class="shop-card-title">The Singletracks Merch</h3>
+        <p class="shop-card-desc">Magliette, cappellini e adesivi The Singletracks. Presto disponibili.</p>
+        <p class="shop-card-price">Prossimamente</p>
+        <button class="btn btn-outline" style="width:100%; margin-top:1rem; opacity:0.5; cursor:not-allowed;">In arrivo</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- NEWSLETTER SHOP -->
+  <div style="max-width:600px; margin-top:4rem; padding:2rem; background:var(--bark); border:1px solid var(--stone);">
+    <p class="section-label">📧 Avvisami</p>
+    <h2 style="font-size:1.4rem; font-weight:300; color:var(--snow); margin-bottom:0.5rem;">Vuoi essere <em style="font-style:italic;">avvisato</em> quando apre?</h2>
+    <p style="font-size:0.85rem; color:var(--lichen); margin-bottom:1.5rem;">Lascia la tua email e ti avvisiamo appena i prodotti sono disponibili.</p>
+    <div style="display:flex; flex-direction:column; gap:0.8rem;">
+      <input type="email" placeholder="tua@email.com" style="background:var(--stone); border:1px solid var(--stone); color:var(--snow); font-family:'Cormorant Garamond',serif; font-size:1rem; padding:0.8rem 1rem; outline:none; width:100%; box-sizing:border-box;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--stone)'"/>
+      <button onclick="alert('Grazie! Ti avviseremo presto 🏔️')" class="btn btn-primary" style="width:100%; text-align:center;">Avvisami</button>
+    </div>
+  </div>
+
+</div>
+
+<style>
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.shop-card {
+  background: var(--bark);
+  border: 1px solid var(--stone);
+  transition: border-color 0.3s;
+}
+
+.shop-card:hover { border-color: var(--lichen); }
+
+.shop-card-img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shop-card-body { padding: 1.5rem; }
+
+.shop-card-cat {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.shop-card-title {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--snow);
+  margin-bottom: 0.5rem;
+}
+
+.shop-card-desc {
+  font-size: 0.85rem;
+  color: var(--lichen);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.shop-card-price {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+}
+
+@media (max-width: 900px) {
+  .shop-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 600px) {
+  .shop-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<script>
+function filterShop(cat, btn) {
+  document.querySelectorAll('.cat-filter').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.shop-card').forEach(card => {
+    if (cat === 'all' || card.dataset.shop === cat) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>

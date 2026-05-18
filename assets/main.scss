@@ -607,3 +607,11 @@ nav { top: 2rem; }
   .news-bar-items { display: none; }
   nav { top: 2rem; }
 }
+/* ── CALENDARIO ── */
+.cal-mese {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.45rem;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  text-transform: uppercase;
+}

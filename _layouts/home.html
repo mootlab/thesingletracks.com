@@ -59,7 +59,7 @@ layout: default
 
       {% if site.posts.size > 0 %}
       <div style="display:flex; flex-direction:column; gap:2px;">
-        {% assign blog_posts = site.posts | where_exp: "post", "post.categories[0] != 'gear' and post.categories[0] != 'storie'" %}
+        {% assign blog_posts = site.posts | where_exp: "post", "post.categories[0] != 'gear'" | where_exp: "post", "post.categories[0] != 'storie'" %}
         {% for post in blog_posts limit:4 %}
         <a href="{{ post.url }}" class="home-post-card reveal">
           {% if post.image %}

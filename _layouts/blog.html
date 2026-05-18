@@ -19,7 +19,7 @@ layout: default
   <div class="posts-grid">
     {% for post in site.posts %}
     {% assign cat = post.categories | first %}
-    {% if cat != 'gear' and cat != 'storie' %}
+    {% unless cat == 'gear' or cat == 'storie' %}
     <a class="post-grid-card" href="{{ post.url | relative_url }}" data-category="{{ cat }}">
       <div class="post-grid-img cat-{{ cat }}" {% if post.image %}style="background-image: url('{{ post.image }}'); background-size: cover; background-position: center;"{% endif %}>
         <span class="post-grid-cat-label">{{ cat }}</span>
@@ -30,7 +30,7 @@ layout: default
         <p class="post-grid-excerpt">{{ post.excerpt | strip_html | truncate: 100 }}</p>
       </div>
     </a>
-    {% endif %}
+    {% endunless %}
     {% endfor %}
   </div>
 </div>

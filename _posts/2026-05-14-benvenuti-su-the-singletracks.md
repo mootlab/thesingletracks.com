@@ -4,7 +4,7 @@ title: "Benvenuti su The Singletracks"
 date: 2026-05-14
 categories: news
 author: The Singletracks
-image: /images/welcome-singletracks.png
+image: /images/welcome-singletracks.jpg
 excerpt: "Il progetto editoriale dedicato al trail e all'ultra running italiano è finalmente online."
 ---
 
